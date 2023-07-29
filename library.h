@@ -1,0 +1,6 @@
+#ifndef BLT_GRAPHICS_LIBRARY_H
+#define BLT_GRAPHICS_LIBRARY_H
+
+void hello();
+
+#endif //BLT_GRAPHICS_LIBRARY_H
