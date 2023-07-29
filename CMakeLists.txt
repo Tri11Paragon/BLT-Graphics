@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.0)
+cmake_minimum_required(VERSION 3.5)
 project(BLT_GRAPHICS VERSION 0.0.1)
 
 option(ENABLE_ADDRSAN "Enable the address sanitizer" OFF)
@@ -26,12 +26,13 @@ include_directories(include/)
 
 file(GLOB_RECURSE source_files src/*.cpp)
 
-add_executable(BLT_GRAPHICS ${source_files})
+add_library(BLT_GRAPHICS ${source_files})
 
 target_link_libraries(BLT_GRAPHICS PUBLIC glfw)
 target_link_libraries(BLT_GRAPHICS PUBLIC BLT)
 target_link_libraries(BLT_GRAPHICS PUBLIC OpenGL)
 target_link_libraries(BLT_GRAPHICS PUBLIC assimp)
+target_include_directories(BLT_GRAPHICS PUBLIC include/)
 target_compile_options(BLT_GRAPHICS PRIVATE -Wall -Wextra -Wpedantic)
 
 if (${ENABLE_ADDRSAN} MATCHES ON)
