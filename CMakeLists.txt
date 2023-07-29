@@ -11,7 +11,7 @@ set(OpenGL_GL_PREFERENCE GLVND)
 find_package(OpenGL)
 
 add_subdirectory(libraries/BLT)
-add_subdirectory(libraries/glfw/glfw-3.3.8)
+add_subdirectory(libraries/glfw)
 
 set(OLD_CMAKE_BUILD_TYPE ${CMAKE_BUILD_TYPE})
 set(CMAKE_BUILD_TYPE "Release")

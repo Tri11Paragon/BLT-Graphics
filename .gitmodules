@@ -1,0 +1,9 @@
+[submodule "libraries/BLT"]
+	path = libraries/BLT
+	url = https://github.com/Tri11Paragon/BLT
+[submodule "libraries/glfw"]
+	path = libraries/glfw
+	url = https://github.com/glfw/glfw.git
+[submodule "libraries/assimp"]
+	path = libraries/assimp
+	url = https://github.com/assimp/assimp.git
