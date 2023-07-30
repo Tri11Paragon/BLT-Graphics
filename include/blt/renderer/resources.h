@@ -6,7 +6,7 @@
 #define PARKSNREC_RESOURCES_H
 
 #include <string>
-#include <parks/renderer/OpenGL.h>
+#include "OpenGL.h"
 
 namespace parks::resources {
     

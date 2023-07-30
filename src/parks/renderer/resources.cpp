@@ -1,14 +1,14 @@
 //
 // Created by brett on 6/12/23.
 //
-#include <parks/renderer/resources.h>
+#include <blt/renderer/resources.h>
 #include <stb/stb_image.h>
 #include <thread>
 #include <mutex>
 #include <queue>
-#include <parks/config.h>
-#include <parks/error_logging.h>
-#include "parks/status.h"
+#include "blt/config.h"
+#include "blt/error_logging.h"
+#include "blt/status.h"
 
 namespace parks {
     

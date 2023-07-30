@@ -3,7 +3,7 @@
 //
 #define GLAD_GL_IMPLEMENTATION
 #define STB_IMAGE_IMPLEMENTATION
-#include <parks/renderer/OpenGL.h>
+#include <blt/renderer/OpenGL.h>
 #include "blt/std/memory.h"
 #include <blt/std/loader.h>
 

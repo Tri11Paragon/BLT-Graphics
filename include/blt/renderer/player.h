@@ -5,7 +5,7 @@
 #ifndef PARKSNREC_PLAYER_H
 #define PARKSNREC_PLAYER_H
 
-#include <blt/math/vectors.h>
+#include "blt/math/vectors.h"
 #include "blt/math/matrix.h"
 
 namespace parks {

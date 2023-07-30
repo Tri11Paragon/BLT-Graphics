@@ -1,11 +1,11 @@
 #pragma once
 
 #include <iostream>
-#include <parks/traits.h>
+#include "traits.h"
 #include <vector>
 #include "blt/std/logging.h"
 #include "status.h"
-#include <parks/error_logging.h>
+#include "error_logging.h"
 
 namespace parks {
     namespace Properties {

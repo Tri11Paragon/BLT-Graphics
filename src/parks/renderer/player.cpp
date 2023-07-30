@@ -1,10 +1,10 @@
 //
 // Created by brett on 6/14/23.
 //
-#include <parks/renderer/player.h>
-#include <parks/window.h>
+#include <blt/renderer/player.h>
+#include "blt/window.h"
 #include <imgui.h>
-#include <parks/config.h>
+#include "blt/config.h"
 
 namespace parks {
     

@@ -1,10 +1,10 @@
 #pragma once
 
-#include <glad/gl.h>
-#include <GLFW/glfw3.h>
+#include "glad/gl.h"
+#include "GLFW/glfw3.h"
 
-#include <parks/app.h>
-#include <blt/math/math.h>
+#include "app.h"
+#include "blt/math/math.h"
 
 namespace parks::Window {
     

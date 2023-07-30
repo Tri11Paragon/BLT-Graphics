@@ -5,7 +5,7 @@
 #ifndef PARKSNREC_ERROR_LOGGING_H
 #define PARKSNREC_ERROR_LOGGING_H
 
-#include <blt/std/logging.h>
+#include "blt/std/logging.h"
 #ifdef __linux__
     #include <execinfo.h>
 #endif

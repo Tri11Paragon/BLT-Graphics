@@ -5,15 +5,15 @@
 #ifndef PARKSNREC_ENGINE_H
 #define PARKSNREC_ENGINE_H
 
-#include <parks/renderer/resources.h>
-#include "parks/window.h"
+#include "resources.h"
+#include "blt/window.h"
 #include "blt/math/vectors.h"
-#include "parks/config.h"
-#include <parks/shader/basic_shader.vert>
-#include <parks/shader/ui_shader.vert>
-#include <parks/shader/basic_shader.frag>
-#include <parks/shader/ui_shader.frag>
-#include <parks/renderer/player.h>
+#include "blt/config.h"
+#include "blt/shader/basic_shader.vert"
+#include "blt/shader/ui_shader.vert"
+#include "blt/shader/basic_shader.frag"
+#include "blt/shader/ui_shader.frag"
+#include "player.h"
 
 namespace parks {
     struct StaticEntity {

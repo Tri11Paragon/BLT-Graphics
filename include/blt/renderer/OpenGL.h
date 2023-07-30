@@ -5,13 +5,13 @@
 #ifndef PARKSNREC_OPENGL_H
 #define PARKSNREC_OPENGL_H
 
-#include <glad/gl.h>
+#include "glad/gl.h"
 #include <vector>
-#include <blt/math/math.h>
-#include <blt/std/string.h>
+#include "blt/math/math.h"
+#include "blt/std/string.h"
 #include <string>
 #include <unordered_map>
-#include <stb/stb_image.h>
+#include "stb/stb_image.h"
 
 namespace parks {
     
