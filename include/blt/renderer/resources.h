@@ -8,7 +8,7 @@
 #include <string>
 #include "OpenGL.h"
 
-namespace parks::resources {
+namespace blt::graphics::resources {
     
     namespace _defaults_ {
         static const std::string ASSUME_TEXTURE_NAME_ID = "NULL.NULL";

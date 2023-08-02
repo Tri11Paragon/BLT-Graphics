@@ -9,7 +9,7 @@
 #include <mutex>
 #include <barrier>
 
-namespace parks {
+namespace blt::graphics {
     
     Engine::Engine(const Settings& settings): settings(settings) {
         vao.bind();
@@ -42,11 +42,9 @@ namespace parks {
             basicCameraController.update();
 
 #ifdef BUILD_DEV_TOOLS
-            auto renderMode = settings.getProperty<int>(
-                    Properties::RENDER_MODE
-            );
+            auto renderMode = settings.getProperty<int>(properties_t::RENDER_MODE);
             if (renderMode)
-                glPolygonMode(GL_FRONT_AND_BACK, renderMode->getValue());
+                glPolygonMode(GL_FRONT_AND_BACK, *renderMode);
             if (Window::keyPressedLastFrame(GLFW_KEY_ESCAPE))
                 Window::setMouseVisible(!Window::isMouseVisible());
 #endif

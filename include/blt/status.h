@@ -5,7 +5,7 @@
 #ifndef PARKSNREC_STATUS_H
 #define PARKSNREC_STATUS_H
 
-namespace parks {
+namespace blt::graphics {
     static int NO_ERROR = 0;
     static int GLFW_ERROR = 1;
     static int GL_ERROR = 2;

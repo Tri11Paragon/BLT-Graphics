@@ -1,5 +1,5 @@
 #include "blt/app.h"
 
-namespace parks {
+namespace blt::graphics {
 
 }

@@ -8,7 +8,7 @@
 #include <imgui_spectrum.h>
 #include <blt/std/time.h>
 
-namespace parks {
+namespace blt::graphics {
     
     std::string decodeGLFWError(int code) {
         switch (code) {
@@ -110,9 +110,9 @@ namespace parks {
         glfwWindowHint(GLFW_SAMPLES, 4);
         
         window = glfwCreateWindow(
-                settings.getProperty<int>(Properties::WINDOW_WIDTH)->getValue(),
-                settings.getProperty<int>(Properties::WINDOW_HEIGHT)->getValue(),
-                settings.getProperty<std::string>(Properties::WINDOW_TITLE)->getValue().c_str(),
+                *settings.getProperty<int>(properties_t::WINDOW_WIDTH),
+                *settings.getProperty<int>(properties_t::WINDOW_HEIGHT),
+                settings.getProperty<std::string>(properties_t::WINDOW_TITLE)->c_str(),
                 nullptr, nullptr
         );
         
@@ -159,7 +159,7 @@ namespace parks {
     void setupSharedWindowMatrices() {
         glGenBuffers(1, &Matrices.uboID);
         glBindBuffer(GL_UNIFORM_BUFFER, Matrices.uboID);
-        glBufferData(GL_UNIFORM_BUFFER, sizeof(blt::mat4x4) * parks::Window::UBO_MATRICES_COUNT, nullptr, GL_STATIC_DRAW);
+        glBufferData(GL_UNIFORM_BUFFER, sizeof(blt::mat4x4) * blt::graphics::Window::UBO_MATRICES_COUNT, nullptr, GL_STATIC_DRAW);
         glBindBufferBase(GL_UNIFORM_BUFFER, 0, Matrices.uboID);
         glBindBuffer(GL_UNIFORM_BUFFER, 0);
     }
@@ -191,7 +191,7 @@ namespace parks {
         int version = gladLoadGL(glfwGetProcAddress);
         if (version == 0) {
             BLT_FATAL("Failed to initialize OpenGL context!");
-            std::exit(parks::GL_ERROR);
+            std::exit(blt::graphics::GL_ERROR);
         }
         BLT_INFO("Loaded OpenGL %d.%d", GLAD_VERSION_MAJOR(version), GLAD_VERSION_MINOR(version));
     }

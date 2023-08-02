@@ -6,7 +6,7 @@
 #include "app.h"
 #include "blt/math/math.h"
 
-namespace parks::Window {
+namespace blt::graphics::Window {
     
     constexpr unsigned int UBO_MATRICES_COUNT = 4;
     

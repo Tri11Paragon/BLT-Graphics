@@ -7,7 +7,7 @@
 
 #include <unordered_map>
 
-namespace parks {
+namespace blt::graphics {
 
 # define PI           3.14159265358979323846
     inline double degreeToRad(double deg){

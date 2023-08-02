@@ -6,7 +6,7 @@
 #include <imgui.h>
 #include "blt/config.h"
 
-namespace parks {
+namespace blt::graphics {
     
     blt::mat4x4 CameraController::generateViewMatrix() {
         blt::mat4x4 view;

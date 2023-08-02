@@ -15,7 +15,7 @@
 #include "blt/shader/ui_shader.frag"
 #include "player.h"
 
-namespace parks {
+namespace blt::graphics {
     struct StaticEntity {
         blt::vec3 pos;
         uint32_t modelID;

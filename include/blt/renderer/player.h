@@ -8,7 +8,7 @@
 #include "blt/math/vectors.h"
 #include "blt/math/matrix.h"
 
-namespace parks {
+namespace blt::graphics {
     
     class Controller;
     class CameraController;

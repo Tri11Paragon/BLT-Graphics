@@ -13,7 +13,7 @@
 #include <unordered_map>
 #include "stb/stb_image.h"
 
-namespace parks {
+namespace blt::graphics {
     
     class GLTexture2D {
         private:

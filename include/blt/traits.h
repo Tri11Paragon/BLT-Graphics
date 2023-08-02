@@ -8,7 +8,7 @@
 #include <type_traits>
 #include <iostream>
 
-namespace parks {
+namespace blt::graphics {
     template <typename T, typename Enable = void>
     struct is_streamable : public std::false_type {};
 

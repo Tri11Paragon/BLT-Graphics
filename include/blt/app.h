@@ -2,104 +2,51 @@
 
 #include <iostream>
 #include "traits.h"
+#include <utility>
 #include <vector>
 #include "blt/std/logging.h"
 #include "status.h"
 #include "error_logging.h"
+#include <variant>
 
-namespace parks {
-    namespace Properties {
-        enum PROPERTIES {
-            // The display window's title
-            WINDOW_TITLE,
-            // the initial display width/height. This value does not change if the window is resized. Use Window::getWidth and Window::getHeight
-            WINDOW_WIDTH,
-            WINDOW_HEIGHT,
-            WINDOW_RESIZABLE,
-            RENDER_MODE, // INT
-        };
-        
-        class Value_t {
-            public:
-                Value_t() = default;
-                
-                Value_t(const Value_t& value) = delete;
-                
-                virtual ~Value_t() = default;
-                
-                virtual void writeValue(std::ostream& ostream) = 0;
-                
-                virtual void readValue(std::istream istream) = 0;
-        };
-        
-        template<typename T, typename std::enable_if<parks::is_streamable<T>::value>::type* = nullptr>
-        class Value : public Value_t {
-            private:
-                T* m_Value;
-            public:
-                explicit Value(const T& v): m_Value(new T(v)) {}
-                
-                explicit Value(T* v): m_Value(v) {}
-                
-                Value() = default;
-                
-                inline const T& getValue() { return *m_Value; }
-                
-                inline void writeValue(std::ostream& ostream) final {
-                    ostream << *m_Value;
-                }
-                
-                inline void readValue(std::istream istream) final {
-                    istream >> *m_Value;
-                }
-                
-                ~Value() override {
-                    delete m_Value;
-                }
-        };
-    }
+namespace blt::graphics {
+    enum class properties_t : int {
+        // The display window's title
+        WINDOW_TITLE,
+        // the initial display width/height. This value does not change if the window is resized. Use Window::getWidth and Window::getHeight
+        WINDOW_WIDTH,
+        WINDOW_HEIGHT,
+        WINDOW_RESIZABLE,
+        RENDER_MODE, // INT
+    };
+    
     class Settings {
         public:
+            typedef std::variant<int32_t, float, bool, std::string> property_t;
             Settings() = default;
             
-            ~Settings() {
-                for (auto* p : values)
-                    delete p;
-            }
+            ~Settings() = default;
             
-            [[nodiscard]] Properties::Value_t* getProperty(Properties::PROPERTIES property) const {
-                //BLT_TRACE("Getting Property information (%d)", property);
-                //BLT_TRACE("Property: %d, Value: %d (Getting)", property, values[property]);
-                if (values.size() <= property)
+            [[nodiscard]] const property_t* getProperty(properties_t property) const {
+                if (values.size() <= static_cast<int>(property))
                     return nullptr;
-                return values[property];
+                return &values[static_cast<int>(property)];
             }
             
             template<typename T>
-            [[nodiscard]] Properties::Value<T>* getProperty(Properties::PROPERTIES property) const {
-                if (values.size() <= property)
+            [[nodiscard]] const T* getProperty(properties_t property) const {
+                if ((int)values.size() <= static_cast<int>(property))
                     return nullptr;
-                return dynamic_cast<Properties::Value<T>*>(values[property]);
+                return &get<T>(values[static_cast<int>(property)]);
             }
             
-            void setProperty(Properties::PROPERTIES property, Properties::Value_t* value) {
-                BLT_TRACE("Setting property information (%d)", property);
-                BLT_TRACE("Values size / capacity (before): %d/%d", values.size(),
-                          values.capacity());
-                BLT_TRACE("Property: %d, Value: %d (Setting)", property, value);
-                if (values.capacity() <= property)
-                    values.resize(property * 2);
-                values[property] = value;
-                BLT_TRACE("Values size / capacity (after): %d/%d", values.size(),
-                          values.capacity());
-                BLT_TRACE("Dumping values:");
-                BLT_TRACE("---------------------");
-                for (unsigned int i = 0; i < values.size(); i++)
-                    BLT_TRACE("Value (%d): %d", i, values[i]);
-                BLT_TRACE("---------------------");
+            void setProperty(properties_t property, property_t value) {
+                if (values.capacity() <= static_cast<int>(property))
+                    values.resize(static_cast<int>(property) * 2);
+                values[static_cast<int>(property)] = std::move(value);
             }
         
         private:
-            std::vector<Properties::Value_t*> values;
+            std::vector<property_t> values;
     };
 }

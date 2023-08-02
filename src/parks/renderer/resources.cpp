@@ -10,7 +10,7 @@
 #include "blt/error_logging.h"
 #include "blt/status.h"
 
-namespace parks {
+namespace blt::graphics {
     
     struct LoadableTexture {
         std::string path, name;

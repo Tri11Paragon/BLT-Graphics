@@ -7,7 +7,7 @@
 #include "blt/std/memory.h"
 #include <blt/std/loader.h>
 
-namespace parks {
+namespace blt::graphics {
 
     static inline std::string removeEmptyFirstLines(const std::string &string) {
         auto lines = blt::string::split(string, "\n");
